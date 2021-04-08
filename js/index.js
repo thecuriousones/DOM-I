@@ -43,6 +43,13 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 // Nav
 const navAnchors = document.querySelectorAll('nav a')
+navAnchors.forEach((anchor, index) => {
+  anchor.textContent = siteContent['nav']['nav-item-'+ (index + 1)]
+  anchor.style.color = 'green'
+})
+
+
+
 
 // navAnchors[0].textContent = siteContent['nav']['nav-item-1']
 // navAnchors[1].textContent = siteContent['nav']['nav-item-2']
@@ -51,9 +58,6 @@ const navAnchors = document.querySelectorAll('nav a')
 // navAnchors[4].textContent = siteContent['nav']['nav-item-5']
 // navAnchors[5].textContent = siteContent['nav']['nav-item-6']
 
-navAnchors.forEach((anchor, index) => {
-  anchor.textContent = siteContent['nav']['nav-item-'+ (index + 1)]
-})
 // Nav end
 
 // Header img
@@ -64,19 +68,68 @@ headerImg.setAttribute('src', siteContent['cta']['img-src'])
 const ctaContent = document.querySelector('.cta-text')
 const h1 = ctaContent.querySelector('h1')
 const ctaButton = ctaContent.querySelector('button')
-h1.textContent = siteContent['cta']['h1']
+// h1.textContent = siteContent['cta']['h1']
+let ctaMessage = siteContent['cta']['h1']
+ctaMessage = ctaMessage.split(" ").join("<br>")
+h1.innerHTML = ctaMessage
 ctaButton.textContent = siteContent['cta']['button']
 
 // Main Content
-const mainContent = document.querySelector('.top-content')
-const mainTexth4 = mainContent.querySelector('h4')
-const mainTextp = mainContent.querySelector('p')
-// const mainText2h4 = mainContent.querySelector('h4')
-// const mainText2p = mainContent.querySelector('p')
-mainTexth4.textContent = siteContent['main-content']['features-h4']
-mainTextp.textContent = siteContent['main-content']['features-content']
-// mainText2h4.textContent = siteContent['main-content']['about-h4']
-// mainText2p.textContent = siteContent['main-content']['about-content']
+const mainHead = document.querySelectorAll('.text-content h4')
+const mainP = document.querySelectorAll('.text-content p')
+mainHead[0].textContent = siteContent['main-content']['features-h4']
+mainP[0].textContent = siteContent['main-content']['features-content']
+
+mainHead[1].textContent = siteContent['main-content']['about-h4']
+mainP[1].textContent = siteContent['main-content']['about-content']
+
+const mainImg = document.querySelector('.middle-img');
+mainImg.setAttribute('src', siteContent['main-content']['middle-img-src'])
+
+mainHead[2].textContent = siteContent['main-content']['services-h4']
+mainP[2].textContent = siteContent["main-content"]["services-content"]
+
+mainHead[3].textContent = siteContent['main-content']['product-h4']
+mainP[3].textContent = siteContent['main-content']['product-content']
+
+mainHead[4].textContent = siteContent['main-content']['vision-h4']
+mainP[4].textContent = siteContent['main-content']['vision-content']
+
+// Contact
+const contactHead = document.querySelector('.contact h4')
+const contactInfo = document.querySelectorAll('.contact p')
+contactHead.textContent = siteContent['contact']['contact-h4']
+contactInfo[0].textContent = siteContent['contact']['address']
+contactInfo[1].textContent = siteContent['contact']['phone']
+contactInfo[2].textContent = siteContent['contact']['email']
+
+// Footer
+const footerCont = document.querySelector('footer')
+footerCont.textContent = siteContent['footer']['copyright']
+
+// New content 
+const galleryLink = document.createElement('a')
+const nav = document.querySelector('nav')
+galleryLink.textContent = 'Gallery'
+galleryLink.setAttribute('href', '#')
+galleryLink.style.color = 'green'
+nav.appendChild(galleryLink)
+
+const updateLink = document.createElement('a')
+updateLink.textContent = 'Updates'
+updateLink.style.color = "teal"
+document.querySelector("nav").appendChild(updateLink)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
